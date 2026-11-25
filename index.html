@@ -49,22 +49,26 @@ p{margin:0 0 1em}
 .btn-pd{background:var(--red);border-color:var(--red);color:var(--ink)}.btn-pd:hover{background:#FF5A76;border-color:#FF5A76}
 .btn-ghost{background:transparent;color:var(--white);border-color:var(--line-2)}.btn-ghost:hover{border-color:rgba(255,255,255,.45)}
 .btn-sm{min-height:44px;padding:0 18px;font-size:14px}
-/* hero */
-.hero{position:relative;padding:clamp(48px,7vw,104px) 0 clamp(48px,6vw,80px);overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
-.lede{font-size:1.15rem;color:var(--text-2);max-width:620px}
-.date-pills{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 20px}
-.pill{border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-top:2px solid var(--accent)}
+/* hero: full-width PD+HW poster first (uncropped titles and faces), then copy beside itself in two columns so the poster stays above the fold. */
+.hero{position:relative;padding:16px 0 20px;overflow-x:hidden}
+.hero-inner{display:flex;flex-direction:column;gap:20px}
+.hero-art{margin:0;position:relative;border-radius:var(--r);
+  box-shadow:0 0 0 1px var(--line-2),0 24px 80px rgba(0,0,0,.45),-48px 0 100px rgba(25,227,255,.14),48px 0 100px rgba(255,138,61,.16)}
+.hero-art img{border-radius:var(--r);width:100%;height:auto;display:block}
+.hero-copy{display:grid;grid-template-columns:1.15fr .95fr;gap:16px 40px;align-items:start}
+.hero h1{font-size:clamp(2.05rem,3.3vw,3.15rem);margin:0 0 .3em}
+.hero .eyebrow{margin:0 0 10px}
+.lede{font-size:1.05rem;color:var(--text-2);max-width:620px;margin:0}
+.date-pills{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 12px}
+.pill{border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px;background:var(--panel);border:1px solid var(--line);border-top:2px solid var(--accent)}
 .pill-pd{--accent:var(--cyan)}.pill-hw{--accent:var(--purple)}
 .pill-k{font:400 1.45rem/1 var(--display);text-transform:uppercase;color:var(--accent)}
 .pill-hw .pill-k{color:var(--purple-text)}
 .pill-v{font:700 1.02rem var(--cond);letter-spacing:.06em;text-transform:uppercase}
 .pill-s{font-size:.86rem;color:var(--text-2)}
-.hero-sup{color:var(--text-2);font-size:.98rem}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 22px}
+.hero-sup{color:var(--text-2);font-size:.95rem;margin:0 0 10px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 12px}
 .venue-line{font:600 13px var(--cond);letter-spacing:.3em;text-transform:uppercase;color:var(--text-3);margin:0}
-.hero-art{margin:0}
-.hero-art img{border-radius:var(--r);border:1px solid var(--line-2);width:100%;height:auto}
 figcaption{font:600 12px/1.4 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-top:10px}
 .cap-ill::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--purple);margin-right:8px;vertical-align:2px}
 /* proof chain */
@@ -182,7 +186,7 @@ tbody tr:last-child td,tbody tr:last-child th{font-weight:700;color:var(--cyan)}
 /* responsive */
 @media (max-width:1180px){.brand-x{display:none}.nav-links{gap:20px}}
 @media (max-width:1040px){.posters{grid-template-columns:repeat(2,1fr)}.tiers{grid-template-columns:1fr 1fr}.nav-links{gap:16px}.nav-links a{font-size:14px;letter-spacing:.12em}.gallery{grid-template-columns:1fr 1fr}.brand .brand-sep,.brand .pd-logo{display:none}}
-@media (max-width:900px){.wrap{width:calc(100% - 48px)}.hero-grid,.duo,.panel,.form-grid{grid-template-columns:1fr}.hero-art{order:-1}.nav nav{display:none}.nav .btn-sm{margin-left:auto}.panel{gap:18px}.hotspots{display:block}.brand .brand-sep,.brand .pd-logo{display:block}}
+@media (max-width:900px){.wrap{width:calc(100% - 48px)}.hero{padding:16px 0 28px}.hero-inner{gap:18px}.hero-copy{grid-template-columns:1fr}.hero h1{font-size:clamp(2.2rem,9vw,2.8rem)}.duo,.panel,.form-grid{grid-template-columns:1fr}.nav nav{display:none}.nav .btn-sm{margin-left:auto}.panel{gap:18px}.hotspots{display:block}.brand .brand-sep,.brand .pd-logo{display:block}}
 @media (max-width:640px){.wrap{width:calc(100% - 32px)}body{font-size:16px}.nav-in{height:64px;gap:12px}.brand{gap:10px}.brand .dx-lockup{height:20px}.brand .brand-sep,.brand .pd-logo{display:none}.btn-sm{padding:0 14px}
 .poster{padding:8px 8px 10px}.poster figcaption{flex-direction:column;gap:4px}.pname{font-size:1.05rem}.posters{gap:12px}.tablist{flex-wrap:nowrap;margin-right:-16px;padding-right:16px}.eyebrow{letter-spacing:.22em}.date-pills{grid-template-columns:1fr}.chain-in{grid-template-columns:1fr 1fr}.chain-in>div:nth-child(3)::before{display:none}.chain-in>div:nth-child(n+3){border-top:1px solid var(--line)}.chain .n{font-size:2.4rem}.tiers{grid-template-columns:1fr}.inq{grid-template-columns:1fr;padding:20px}.foot-in{grid-template-columns:1fr}.event{padding:24px}.event h3{font-size:2.2rem}.panel{padding:12px}.panel-copy h3{font-size:1.9rem}.cta-row .btn{flex:1 1 100%}.form-actions .btn{flex:1 1 100%}.wide-ill img{aspect-ratio:16/10}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
@@ -240,16 +244,18 @@ tbody tr:last-child td,tbody tr:last-child th{font-weight:700;color:var(--cyan)}
 <nav aria-label="Sections"><ul class="nav-links">
 <li><a href="#events">The week</a></li><li><a href="#own">What you can own</a></li><li><a href="#tiers">Tiers</a></li><li><a href="#talent">Talent</a></li><li><a href="#venue">Venue</a></li></ul></nav>
 <a class="btn btn-sm btn-pd" href="#inquire">Request a deck</a></div></header><main id="main">
-<section class="hero"><div class="wrap hero-grid">
-<div class="hero-copy"><p class="eyebrow">DucatiX · Partnership opportunities · 2027</p>
-<h1>Porn Disco is back. A sexy, pornstar-studded day-into-night party. Then a week on set.</h1><p class="lede">Porn Disco returns to CCBC Resort Hotel in Palm Springs, Friday, March 5 to Sunday, March 7, 2027. Heat Week follows, Monday, March 8 to Friday, March 12. Two moments. One Palm Springs week. Put your brand in the room.</p>
+<section class="hero"><div class="wrap hero-inner">
+<figure class="hero-art"><img src="assets/hero_pdhw.jpg" alt="Split key art: neon Porn Disco pool party at night beside a sunlit Heat Week desert pool, with both date ranges" width="1280" height="504"></figure>
+<div class="hero-copy">
+<div class="hero-intro"><p class="eyebrow">DucatiX · Partnership opportunities · 2027</p>
+<h1>Porn Disco is back. A sexy, pornstar-studded day-into-night party. Then a week on set.</h1><p class="lede">Porn Disco returns to CCBC Resort Hotel in Palm Springs, Friday, March 5 to Sunday, March 7, 2027. Heat Week follows, Monday, March 8 to Friday, March 12. Two moments. One Palm Springs week. Put your brand in the room.</p></div>
+<div class="hero-actions">
 <div class="date-pills">
 <div class="pill pill-pd"><span class="pill-k">Porn Disco</span><span class="pill-v">Fri, Mar 5 to Sun, Mar 7, 2027</span><span class="pill-s">B2C pool party + nightlife</span></div>
 <div class="pill pill-hw"><span class="pill-k">Heat Week</span><span class="pill-v">Mon, Mar 8 to Fri, Mar 12, 2027</span><span class="pill-s">B2B creator residency + collab house</span></div></div>
 <p class="hero-sup">Presented by DucatiX. Built for partners who want to be seen by fans at the party, and by creators during the residency that follows.</p>
 <div class="cta-row"><a class="btn btn-pd" href="#inquire">Request a partnership deck</a><a class="btn btn-ghost" href="#tiers">See the tiers</a></div>
-<p class="venue-line">CCBC Resort Hotel · Palm Springs, CA</p></div>
-<figure class="hero-art"><img src="assets/hero.jpg" alt="Porn Disco plus Heat Week banner: Sean Xavier, Beau Butler, Rocky Unleashed and Jaxx Cody in front of creator silhouettes" width="1280" height="720"></figure>
+<p class="venue-line">CCBC Resort Hotel · Palm Springs, CA</p></div></div>
 </div></section>
 <section class="photostrip" aria-label="CCBC Resort Hotel photos"><div class="strip-row"><figure><img src="assets/ccbc_expedia_01.jpg" alt="CCBC Resort Hotel: the pool after dark" loading="lazy"><figcaption>The pool after dark</figcaption></figure><figure><img src="assets/ccbc_expedia_03.jpg" alt="CCBC Resort Hotel: neon palms" loading="lazy"><figcaption>Neon palms</figcaption></figure><figure><img src="assets/ccbc_expedia_06.jpg" alt="CCBC Resort Hotel: the lawn at night" loading="lazy"><figcaption>The lawn at night</figcaption></figure><figure><img src="assets/ccbc_expedia_04.jpg" alt="CCBC Resort Hotel: runway bar" loading="lazy"><figcaption>Runway Bar</figcaption></figure><figure><img src="assets/ccbc_expedia_07.jpg" alt="CCBC Resort Hotel: lit up till late" loading="lazy"><figcaption>Lit up till late</figcaption></figure><figure><img src="assets/ccbc_expedia_02.jpg" alt="CCBC Resort Hotel: garden paths" loading="lazy"><figcaption>Garden paths</figcaption></figure></div><p class="strip-note">Real photos of CCBC Resort Hotel, Palm Springs, after dark</p></section>
 <section id="events" class="section"><div class="wrap"><p class="eyebrow">Two moments, kept distinct</p>
@@ -268,11 +274,11 @@ tbody tr:last-child td,tbody tr:last-child th{font-weight:700;color:var(--cyan)}
 <article class="act"><figure><img src="assets/act_02.jpg" alt="Meat &amp; Greet step and repeat: branded placement at CCBC" loading="lazy" style="object-position:center 50%"><span class="act-n">02</span></figure><div class="act-copy"><h4>Meat &amp; Greet step and repeat</h4><p class="act-desc">Your brand behind the talent the moment the weekend opens.</p><p class="act-feel">Flashbulbs, first looks, the weekend officially starts in front of your wall.</p></div></article>
 <article class="act"><figure><img src="assets/act_03.jpg" alt="Early-entry Meat &amp; Greet: CCBC Resort Hotel" loading="lazy" style="object-position:center 50%"><span class="act-n">03</span></figure><div class="act-copy"><h4>Early-entry Meat &amp; Greet</h4><p class="act-desc">Host the VIP early entry, so fans meet the stars through your brand first.</p><p class="act-feel">The gate opens early and your VIPs walk in first, wristbands on.</p></div></article>
 <article class="act"><figure><img src="assets/act_04.jpg" alt="Pool banners: branded placement at CCBC" loading="lazy" style="object-position:center 50%"><span class="act-n">04</span></figure><div class="act-copy"><h4>Pool banners</h4><p class="act-desc">Your logo around the pool all day, in every shot of the crowd.</p><p class="act-feel">Sun, skin and splash, with your logo framing every pool shot.</p></div></article>
-<article class="act"><figure><img src="assets/act_05.jpg" alt="Go-go boxes: branded placement at CCBC" loading="lazy" style="object-position:center 80%"><span class="act-n">05</span></figure><div class="act-copy"><h4>Go-go boxes</h4><p class="act-desc">Your brand under the dancers, at the center of the action.</p><p class="act-feel">Dancers above the crowd, all eyes up, your brand right underneath.</p></div></article>
+<article class="act"><figure><img src="assets/act_05.jpg" alt="Go-go boxes: branded placement at CCBC" loading="lazy" style="object-position:center 55%"><span class="act-n">05</span></figure><div class="act-copy"><h4>Go-go boxes</h4><p class="act-desc">Your brand under the dancers, at the center of the action.</p><p class="act-feel">Dancers above the crowd, all eyes up, your brand right underneath.</p></div></article>
 <article class="act"><figure><img src="assets/act_06.jpg" alt="DJ booth: branded placement at CCBC" loading="lazy" style="object-position:center 50%"><span class="act-n">06</span></figure><div class="act-copy"><h4>DJ booth</h4><p class="act-desc">Your name on the booth that runs the night.</p><p class="act-feel">Bass drops, hands up, your name lit behind the DJ.</p></div></article>
 <article class="act"><figure><img src="assets/act_07.jpg" alt="Live shows and product demos: CCBC Resort Hotel" loading="lazy" style="object-position:center 50%"><span class="act-n">07</span></figure><div class="act-copy"><h4>Live shows and product demos</h4><p class="act-desc">Your product on stage in front of the crowd.</p><p class="act-feel">The crowd pushes close as your product goes live on stage.</p></div></article>
 <article class="act"><figure><img src="assets/act_08.jpg" alt="Branded shot bartenders: CCBC Resort Hotel" loading="lazy" style="object-position:center 50%"><span class="act-n">08</span></figure><div class="act-copy"><h4>Branded shot bartenders</h4><p class="act-desc">Your brand served hand to hand, all party long.</p><p class="act-feel">A shirtless bartender, a tray of shots, a cheer every round.</p></div></article>
-<article class="act"><figure><img src="assets/act_09.jpg" alt="Underwear show runway: CCBC Resort Hotel" loading="lazy" style="object-position:center 50%"><span class="act-n">09</span></figure><div class="act-copy"><h4>Underwear show runway</h4><p class="act-desc">Your gear on the runway, under the lights.</p><p class="act-feel">Lights hit, music swells, your gear walks the runway.</p></div></article>
+<article class="act"><figure><img src="assets/act_09.jpg" alt="Underwear show runway: branded placement at CCBC" loading="lazy" style="object-position:center 50%"><span class="act-n">09</span></figure><div class="act-copy"><h4>Underwear show runway</h4><p class="act-desc">Your gear on the runway, under the lights.</p><p class="act-feel">Lights hit, music swells, your gear walks the runway.</p></div></article>
 <article class="act"><figure><img src="assets/act_10.jpg" alt="VIP lounge and Runway Bar: CCBC Resort Hotel" loading="lazy" style="object-position:center 50%"><span class="act-n">10</span></figure><div class="act-copy"><h4>VIP lounge and Runway Bar</h4><p class="act-desc">Your brand on the spaces where talent and VIPs hang out.</p><p class="act-feel">The talent&#x27;s private corner, with your brand on the bar.</p></div></article>
 <article class="act"><figure><img src="assets/act_11.jpg" alt="Live cam suite takeover: CCBC Resort Hotel" loading="lazy" style="object-position:center 50%"><span class="act-n">11</span></figure><div class="act-copy"><h4>Live cam suite takeover</h4><p class="act-desc">A branded suite broadcasting live from the party all weekend.</p><p class="act-feel">On air from the party, with fans online watching the weekend through your suite.</p></div></article>
 <article class="act"><figure><img src="assets/act_12.jpg" alt="Themed branded rooms: CCBC Resort Hotel" loading="lazy" style="object-position:center 50%"><span class="act-n">12</span></figure><div class="act-copy"><h4>Themed branded rooms</h4><p class="act-desc">A whole room built around your brand.</p><p class="act-feel">Guests walk in and they&#x27;re inside your brand.</p></div></article>
